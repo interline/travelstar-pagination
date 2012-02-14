@@ -38,7 +38,7 @@ end
 
 output 'dist'
 
-input  'lib' do
+input ['lib', 'templates'] do
   match '*.js' do
     filter LoaderFilter,
       :module_id_generator => proc { |input|
@@ -47,14 +47,11 @@ input  'lib' do
 
     if ENV['RAKEP_MODE'] == 'production'
       filter EmberAssertFilter
-      uglify
     end
 
-    concat "#{APPNAME}.js"
+    concat 'lib.js'
   end
-end
 
-input 'templates' do
   match '*.handlebars' do
     filter HandlebarsFilter
     filter LoaderFilter,
@@ -63,12 +60,14 @@ input 'templates' do
         "#{APPNAME}/~templates/#{name}"
       }
 
-    if ENV['RAKEP_MODE'] == 'production'
-      uglify
-    end
-
-    concat "#{APPNAME}.js"
+    concat 'templates.js'
   end
+
+  if ENV['RAKEP_MODE'] == 'production'
+    uglify
+  end
+
+  concat ['lib.js', 'templates.js'], "#{APPNAME}.js"
 end
 
 # vim: filetype=ruby
