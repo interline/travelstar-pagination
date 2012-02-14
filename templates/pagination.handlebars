@@ -1,0 +1,21 @@
+<div class="pagination">
+  <ul>
+    <li {{bindAttr class="disablePrev:disabled"}}>
+      <a {{action "previousPage"}}>
+        &larr; Previous
+      </a>
+    </li>
+    {{#each pages}}
+      <li {{bindAttr class="isCurrent:active"}}>
+        <a {{action "pageTo"}}>
+          {{idx}}
+        </a>
+      </li>
+    {{/each}}
+    <li {{bindAttr class="disableNext:disabled"}}>
+      <a {{action "nextPage"}}>
+        &rarr; Next
+      </a>
+    </li>
+  </ul>
+</div>
