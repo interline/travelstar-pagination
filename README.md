@@ -22,4 +22,4 @@ App.resultsController = Em.ArrayProxy.create(TS.PaginationSupport, {
 
 ### main_page.handlebars
 
-    {{view TS.PaginationView delegateBinding="TS.resultsController"}}
+    {{view App.PaginationView delegateBinding="App.resultsController"}}
