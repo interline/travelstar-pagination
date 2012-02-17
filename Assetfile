@@ -42,7 +42,8 @@ input ['lib', 'templates'] do
   match '*.js' do
     filter LoaderFilter,
       :module_id_generator => proc { |input|
-        "#{APPNAME}/#{input.path}"
+        name = File.basename(input.path, '.js')
+        "#{APPNAME}/#{name}"
       }
 
     if ENV['RAKEP_MODE'] == 'production'
