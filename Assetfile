@@ -42,7 +42,7 @@ input ['lib', 'templates'] do
   match '*.js' do
     filter LoaderFilter,
       :module_id_generator => proc { |input|
-        name = File.basename(input.path, '.js')
+        name = input.path.sub(/.js$/, '')
         "#{APPNAME}/#{name}"
       }
 
@@ -57,7 +57,7 @@ input ['lib', 'templates'] do
     filter HandlebarsFilter
     filter LoaderFilter,
       :module_id_generator => proc { |input|
-        name = File.basename(input.path, '.handlebars')
+        name = input.path.sub(/.handlebars$/, '')
         "#{APPNAME}/~templates/#{name}"
       }
 
