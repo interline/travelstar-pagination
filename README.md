@@ -3,7 +3,7 @@
 ## Building
 
     $ bundle install
-    $ bundle exec rakep build
+    $ bundle exec rakep
 
 ## Using
 
