@@ -1,8 +1,9 @@
+{{#if summaryOnTop}}<div class='pagination-summary'>Results {{delegate.displayRangeStart}} - {{delegate.rangeStop}} of {{delegate.total}}</div>{{/if}}
 <div class="pagination">
   <ul>
     <li {{bindAttr class="disablePrev:disabled"}}>
       <a {{action "previousPage"}}>
-        &larr; Previous
+        &lt;&lt;
       </a>
     </li>
     {{#each pages}}
@@ -14,8 +15,9 @@
     {{/each}}
     <li {{bindAttr class="disableNext:disabled"}}>
       <a {{action "nextPage"}}>
-        &rarr; Next
+        &gt;&gt;
       </a>
     </li>
   </ul>
 </div>
+{{#unless summaryOnTop}}<div class='pagination-summary'>Results {{delegate.displayRangeStart}} - {{delegate.rangeStop}} of {{delegate.total}}</div>{{/unless}}
