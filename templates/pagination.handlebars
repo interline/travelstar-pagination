@@ -1,19 +1,19 @@
 <div class="pagination">
   <ul>
-    <li {{bindAttr class="disablePrev:disabled"}}>
-      <a {{action "previousPage"}}>
+    <li {{bindAttr class="view.disablePrev:disabled"}}>
+      <a {{action "previousPage" target="view"}}>
         &larr; Previous
       </a>
     </li>
-    {{#each pages}}
+    {{#each view.pages}}
       <li {{bindAttr class="isCurrent:active"}}>
-        <a {{action "pageTo"}}>
+        <a {{action "pageTo" target="view"}}>
           {{idx}}
         </a>
       </li>
     {{/each}}
-    <li {{bindAttr class="disableNext:disabled"}}>
-      <a {{action "nextPage"}}>
+    <li {{bindAttr class="view.disableNext:disabled"}}>
+      <a {{action "nextPage" target="view"}}>
         &rarr; Next
       </a>
     </li>
