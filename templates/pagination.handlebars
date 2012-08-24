@@ -7,7 +7,7 @@
     </li>
     {{#each view.pages}}
       <li {{bindAttr class="isCurrent:active"}}>
-        <a {{action "pageTo" target="view"}}>
+        <a {{action pageTo this target="view"}}>
           {{idx}}
         </a>
       </li>
